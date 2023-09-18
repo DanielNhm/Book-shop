@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<head>
+
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+
+<body onload="onInit()">
+    <h1 data-trans="title">My BookShop</h1>
+    <select onchange="onSetLang(this.value)">
+        <option value="en">English</option>
+        <option value="he">עברית</option>
+    </select>
+    <section class="some-but">
+        <input type="text" oninput="onEdit(event)" placeholder="Book name" name="bookname" value=""
+            data-trans="bookname-placeholder" />
+        <input type="number" min="0" oninput="onEdit(event)" placeholder="Maximum price" name="price" value=""
+            data-trans="maxprice-placeholder" />
+        <input type="number" oninput="onEdit(event)" placeholder="Minimum rate" name="rate"
+            data-trans="minrate-placeholder" />
+        <button data-trans="add-button" class="add" onclick="onAddBook()">Add new book</button>
+    </section>
+    <table>
+        <thead>
+
+
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <section class="page-button">
+        <button data-trans="prevPage" onclick="onChangePage(-1)">Prev page</button>
+        <button data-trans="nextPage" onclick="onChangePage(1)">Next page</button>
+    </section>
+    <section class="modal hidden">
+        <button class="close-modal" onclick="onCloseModal()">x</button>
+        <h3><span class="title"></span></h3>
+        <h3 class="hidden">Id:<span class="id"></span></h3>
+        <div class="divPrice">
+            <h3 data-trans="pricemodal">Price:</h3>
+            <span class="price"></span>
+        </div>
+        <div class="divRate">
+            <h3 data-trans="ratemodal">Rate:</h3>
+            <span class="rate"></span>
+        </div>
+        <img src="1.jpg">
+        <section class="change-rate">
+            <button class="minus" onclick="onChangeRate('.input', -1)">-</button>
+            <input type="number" value="0" class="input" />
+            <button class="plus" onclick="onChangeRate('.input',1)">+</button>
+        </section>
+    </section>
+    <script src="js/lib/hammer.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/util.service.js"></script>
+    <script src="js/service.js"></script>
+    <script src="js/contoroller.js"></script>
+    <script src="js/i18n.js"></script>
+</body>
+
+</html>
